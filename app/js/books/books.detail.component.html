@@ -1,0 +1,25 @@
+<img class="book-thumbnail" ng-click="$ctrl.clickImage()" ng-src="{{ $ctrl.book.volumeInfo.imageLinks.smallThumbnail }}"/>
+
+<div class="book-details">
+    <!--<it-book book="$ctrl.book" collapsed="$ctrl.collapsed"></it-book>-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                {{ $ctrl.book.volumeInfo.title }}
+            </h3>
+        </div>
+        <div class="panel-body" ng-hide="collapsed">
+            <p>
+                {{ $ctrl.book.volumeInfo.publishedDate}}
+                <br/>
+        <span ng-repeat="author in $ctrl.book.volumeInfo.authors">
+            {{ author }}
+        </span>
+                <br/>
+                {{ $ctrl.book.volumeInfo.publisher }}
+            </p>
+
+            <p ng-bind-html="$ctrl.book.searchInfo.textSnippet"></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{
+  "name": "angular-book-app-15",
+  "version": "1.0.0",
+  "description": "Angular Demo Application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iterativ/angular-book-app-15.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lite": "lite-server",
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Egger <daniel.egger@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-core": "2.4.1",
+    "karma": "0.13.22",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-jasmine": "0.3.7",
+    "karma-phantomjs-launcher": "1.0.0",
+    "lite-server": "2.1.0",
+    "phantomjs-prebuilt": "2.1.5",
+    "protractor": "3.1.1"
+  },
+  "dependencies": {
+    "@angular/router": "0.2.0",
+    "angular": "1.5.0",
+    "angular-mocks": "1.5.0",
+    "angular-sanitize": "1.5.0",
+    "bootstrap": "3.3.6",
+    "lodash": "4.6.1"
+  }
+}
