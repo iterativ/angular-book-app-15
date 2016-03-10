@@ -1,5 +1,5 @@
 angular.module('itApp.books').component('bookList', {
-    templateUrl: 'app/js/books/booklist.component.html',
+    templateUrl: 'app/js/books/books.list.component.html',
     controller: 'BookListController'
 });
 

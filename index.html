@@ -29,13 +29,7 @@
 </header>
 
 <div id="main-container">
-    <div ui-view>
-        <div class="container">
-            <h1>Hello World {{5+2}}</h1>
-        </div>
-
-        <app></app>
-    </div>
+    <app></app>
 </div>
 
 <div class="container">
@@ -46,14 +40,19 @@
     </footer>
 </div>
 
+<script src="node_modules/lodash/lodash.js"></script>
+
 <script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+
 <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
 
 <script src="app/js/app.js"></script>
 
 <script src="app/js/books/books.module.js"></script>
-<script src="app/js/books/booklist.component.js"></script>
 <script src="app/js/books/books.component.js"></script>
+<script src="app/js/books/books.detail.component.js"></script>
+<script src="app/js/books/books.list.component.js"></script>
 <script src="app/js/books/books.service.js"></script>
 
 <script src="app/js/examples/examples.module.js"></script>

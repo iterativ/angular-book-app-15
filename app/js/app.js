@@ -1,6 +1,7 @@
 'use strict';
 
 var itApp = angular.module('itApp', [
+    'ngSanitize',
     'ngComponentRouter',
 
     'itApp.books',
