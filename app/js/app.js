@@ -11,8 +11,6 @@ itApp.value('$routerRootComponent', 'app');
 
 itApp.component('app', {
     template: '<nav>\n' +
-    '<a ng-link="[\'Books\']">Books</a>\n' +
-    '<a ng-link="[\'Examples\']">Examples</a>\n' +
     '</nav>\n' +
     '<ng-outlet></ng-outlet>\n',
     $routeConfig: [

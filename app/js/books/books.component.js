@@ -1,3 +1,3 @@
 itApp.component('books', {
-    template: '<h1>Hello Books</h1>'
+    templateUrl: 'app/js/books/books.component.html',
 });
