@@ -19,7 +19,7 @@
         if(response.data.totalItems > 0) {
           return response.data.items[0];
         }
-        return {};
+        return null;
       });
     }
 
@@ -29,7 +29,7 @@
         if(book) {
           return getBookDetailsByIsbn(book.isbn);
         }
-        return {};
+        return null;
       });
     }
 

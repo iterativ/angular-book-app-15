@@ -7,7 +7,7 @@ angular.module('itApp.books').component('bookDetail', {
 
 angular.module('itApp.books').controller('BookDetailController', BookDetailController);
 
-function BookDetailController($log, bookService) {
+function BookDetailController($log, $rootRouter, bookService) {
     var $ctrl = this;
 
     $ctrl.book = null;
@@ -16,9 +16,14 @@ function BookDetailController($log, bookService) {
     $ctrl.$routerOnActivate = function(next) {
         $log.debug('$routerOnActivate', next);
 
-        var bookId = next.params.id;
+        var bookId = parseInt(next.params.id, 10);
         return bookService.getBookDetailsById(bookId).then(function(book) {
-            $ctrl.book = book;
+            if(book) {
+                $ctrl.book = book;
+            }
+            else {
+                $rootRouter.navigate(['Books']);
+            }
         });
     };
 

@@ -15,7 +15,7 @@ itApp.component('app', {
     '</nav>\n' +
     '<ng-outlet></ng-outlet>\n',
     $routeConfig: [
-        {path: '/books', name: 'Books', component: 'books', useAsDefault: true},
+        {path: '/books/...', name: 'Books', component: 'books', useAsDefault: true},
         {path: '/examples', name: 'Examples', component: 'examples'}
     ]
 });
