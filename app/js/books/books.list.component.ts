@@ -2,15 +2,15 @@
  * Created by christiancueni on 12/03/16.
  // */
 
-BookListController.$inject = ['$log', '$scope', 'BookService'];
+class BookListController {
 
-function BookListController($log, $scope, bookService) {
-    var $ctrl = this;
-    $ctrl.books = [];
+    private books = [];
+    static $inject = ['$log', '$scope', 'BookService'];
 
-    activate();
+    constructor ($log, $scope, bookService) {
 
-    function activate() {
+        let $ctrl = this;
+
         $log.debug('BookListController activated');
 
         bookService.getBooks().then(function(books) {

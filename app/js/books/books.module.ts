@@ -7,6 +7,6 @@ import BookDetailComponent from './books.detail.component';
 export default angular.module('itApp.books', [])
             .factory('BookService', BookService)
             .component('booksComponent', BooksComponent)
-            .component('booksEmptyComponent', BooksEmptyComponent)
+            .component('booksEmpty', BooksEmptyComponent)
             .component('bookList', BookListComponent)
             .component('bookDetail', BookDetailComponent);
