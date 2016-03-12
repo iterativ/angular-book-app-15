@@ -6,6 +6,12 @@
 > npm install
 ```
 
+### Compile Typescript
+
+```
+> npm run tsc
+```
+
 ### Run the dev server
 
 ```
