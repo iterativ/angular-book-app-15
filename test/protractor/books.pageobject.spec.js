@@ -1,7 +1,4 @@
 function BookDetailPage(bookId) {
-    var self = this;
-    this.bookId = bookId;
-
     this.get = function() {
         browser.get('/#/books/' + bookId);
     };
