@@ -32,13 +32,10 @@ class BookDetailController {
     private book:IBook;
     private notes:INote[] = [];
     private note:Object;
-    private formActive:Boolean = true;
 
-    constructor(private $log, private $rootRouter, private bookService,
-                private noteService) {
+    constructor(private $log, private $rootRouter, private bookService, private noteService) {
 
         this.resetNote();
-        console.log("sone")
     }
 
     $routerOnActivate = function(next) {
@@ -58,18 +55,15 @@ class BookDetailController {
 
         let notesPromise = new Promise((resolve) => {
             this.notes = this.noteService.listNotes(bookId);
-            console.log("notes", this.notes);
             resolve(true);
         });
         return Promise.all([detailPromise, notesPromise]);
     };
 
 
-    private saveNote(form) {
-        this.notes = this.noteService.saveNote(this.book.id, form.noteTitle, form.noteAuthor, form.noteText);
+    private saveNote() {
+        this.notes = this.noteService.saveNote(this.book.id, this.note.title, this.note.author, this.note.note);
         this.resetNote();
-        this.formActive = false;
-        setTimeout(()=> this.formActive=true, 0);
     }
 
     private deleteNote(noteId) {

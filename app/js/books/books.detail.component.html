@@ -22,4 +22,56 @@
             <p ng-bind-html="$ctrl.book.searchInfo.textSnippet"></p>
         </div>
     </div>
+
+    <button ng-click="$ctrl.download()" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-download">&nbsp;Download</span>
+    </button>
+
+    <button ng-click="$ctrl.listNotes()" type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-paperclip">&nbsp;List</span>
+    </button>
+
+    <h3>Notes</h3>
+
+    <div class="bs-example" data-example-id="media-alignment">
+        <div class="media">
+            <div class="media-left">
+                <span class="margin-left-05 glyphicon glyphicon-paperclip"></span>
+            </div>
+            <form class="media-body"
+                  name="newNote"
+                  ng-submit="$ctrl.saveNote(newNote)">
+                <h4 class="media-heading">
+                    <input ng-model="$ctrl.note.title"
+                           name="noteTitle"
+                           type="text" class="form-control"
+                           placeholder="Note title...">
+                    <input ng-model="$ctrl.note.author"
+                           name="noteAuthor"
+                           type="text" class="margin-top-05 form-control" placeholder="Author...">
+                </h4>
+                <div class="input-group">
+                    <input ng-model="$ctrl.note.note" name="noteNote"
+                           type="text" class="form-control" placeholder="Note...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Save Note!</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="media" ng-repeat="note in $ctrl.notes">
+            <div class="media-left">
+                <span class="margin-left-05 glyphicon glyphicon-paperclip"></span>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{ note.title }} - {{ note.author }}</h4>
+                <p>{{ note.note }}</p>
+            </div>
+            <div class="media-right">
+                <span ng-click="$ctrl.deleteNote(note.id)" class="margin-left-05 glyphicon glyphicon-trash"></span>
+            </div>
+        </div>
+    </div>
+
+
 </div>
