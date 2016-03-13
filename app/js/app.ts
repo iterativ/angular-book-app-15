@@ -1,7 +1,7 @@
+import upgradeAdapter from './upgradeAdapter';
 import topmenu from './topmenu.component';
 import examples from './examples/examples.module';
 import books from './books/books.module';
-
 
 var itApp = angular.module('itApp', [
     'ngSanitize',
@@ -23,4 +23,5 @@ itApp.component('app', {
     ]
 }).component('topmenu', topmenu);
 
-angular.bootstrap(document.documentElement, ['itApp']);
+
+upgradeAdapter.bootstrap(document.documentElement, ['itApp']);
