@@ -1,35 +1,29 @@
-describe('On the Books page a user', function() {
+describe('In walkthroug trough the Best-Practice App a user can', function() {
 
-    beforeEach(function() {
+    it('see the start page', function() {
         browser.get('/');
-        var menuLinks = element(by.css('ul.navbar-nav')).all(by.tagName('a'));
-
-        // Go to the books page
-        var link = menuLinks.get(1);
-        expect(link.getText()).toBe('Books');
-        link.click();
-
-        // Select the first book
-        element.all(by.repeater('book in vm.books')).get(0).element(by.tagName('a')).click();
+        var logo = element(by.css('a.navbar-brand'));
+        logo.click().then(function() {
+            var title = element(by.tagName('h1'));
+            expect(title.getText()).toBe('Books');
+        });
     });
 
+    it('can select a book', function() {
+        element.all(by.repeater('book in $ctrl.books')).get(0).element(by.tagName('a')).click();
 
-    it('can enter a new comment', function() {
-        var titleInput = element(by.model('vm.newNoteTitle'));
+        var noteAuthorInput = element(by.model('$ctrl.noteAuthor'));
+        noteAuthorInput.sendKeys('Hans');
 
-        // FIXME: Fill form and submit it
-        //...     
-        //var saveButton = ...;
-        //saveButton.click();
+        var noteTextInput = element(by.model('$ctrl.noteText'));
+        noteTextInput.sendKeys('Hello World');
 
+        var saveButton = element(by.buttonText('Save'));
+        saveButton.click();
 
-        // FIXME: Test outcome
-        //var comments = element.all(by.repeater(...));
-        //expect(comments.last() ...).toBe(...);
+        var firstNote = element.all(by.repeater('note in $ctrl.notes')).get(0);
+        expect(firstNote.getText()).toBe('Hans: Hello World');
+
+        //browser.pause();
     });
-
-    it('can enter a new comment and then search for it', function() {
-        // FIXME: to implement
-    });
-
 });
