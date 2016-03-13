@@ -4,7 +4,8 @@ var itApp = angular.module('itApp', [
     'ngSanitize',
     'ngComponentRouter',
 
-    'itApp.books'
+    'itApp.books',
+    'itApp.examples'
 ]);
 
 itApp.value('$routerRootComponent', 'app');

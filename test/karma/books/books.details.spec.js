@@ -1,32 +1,30 @@
 'use strict';
 
-describe('books.detailController', function () {
+describe('booksDetail component controller', function () {
 
   var bookController;
-  var bookNoteService;
+  var bookNotesService;
   var $q;
 
   // load the controller's module
   beforeEach(module('itApp'));
 
-  beforeEach(inject(function($controller, $rootScope, _$q_, _bookNoteService_) {
+  beforeEach(inject(function($componentController, $rootScope, _$q_, _bookNotesService_) {
     $q = _$q_;
-    bookNoteService = _bookNoteService_;
-    bookController = $controller('BookDetailController', {
+    bookNotesService = _bookNotesService_;
+    bookController = $componentController('bookDetail', {
       $scope: $rootScope.$new(),
-      book: {
-        id: 123
-      },
-      bookNoteService: bookNoteService
+      bookNotesService: bookNotesService
     });
   }));
 
-  it('call of saveNote() will call bookNoteService.saveNote() with the correct parameters', function () {
-    spyOn(bookNoteService, 'saveNote').and.returnValue($q.when({}));
+  it('call of saveNote() will call bookNotesService.saveNote() with the correct parameters', function () {
+    spyOn(bookNotesService, 'saveNote').and.returnValue($q.when([]));
 
-    bookController.saveNote('title', 'text', 'author');
+    bookController.book = {id: 1};
+    bookController.saveNote();
 
-    expect(bookNoteService.saveNote).toHaveBeenCalled();
+    expect(bookNotesService.saveNote).toHaveBeenCalled();
   });
 
 });

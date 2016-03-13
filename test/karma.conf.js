@@ -18,22 +18,22 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'node_modules/es6-shim/es6-shim.js',
             'node_modules/lodash/lodash.js',
             'node_modules/angular/angular.js',
             'node_modules/angular-sanitize/angular-sanitize.js',
+            'node_modules/@angular/router/angular1/angular_1_router.js',
 
             'node_modules/angular-mocks/angular-mocks.js',
 
             // all angular module definition files needs to get loaded first
             'app/js/app.js',
             'app/js/books/books.module.js',
+            'app/js/examples/examples.module.js',
 
             'app/js/**/*.js',
-            'test/karma/simpletest.js',
-            'test/karma/books/books.service.spec.js'
 
-            //'test/mock/**/*.js',
-            //'test/karma/**/*.js'
+            'test/karma/**/*.js'
         ],
 
         // list of files / patterns to exclude

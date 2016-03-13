@@ -15,6 +15,7 @@
   "author": "Daniel Egger <daniel.egger@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "es6-shim": "0.35.0",
     "jasmine-core": "2.4.1",
     "karma": "0.13.22",
     "karma-chrome-launcher": "0.2.2",
