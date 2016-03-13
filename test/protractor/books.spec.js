@@ -1,4 +1,4 @@
-describe('In walkthroug trough the Best-Practice App a user can', function() {
+describe('book page', function() {
 
     it('see the start page', function() {
         browser.get('/');
@@ -9,7 +9,7 @@ describe('In walkthroug trough the Best-Practice App a user can', function() {
         });
     });
 
-    it('can select a book', function() {
+    it('can select a book and add a note', function() {
         element.all(by.repeater('book in $ctrl.books')).get(0).element(by.tagName('a')).click();
 
         var noteAuthorInput = element(by.model('$ctrl.noteAuthor'));
@@ -23,7 +23,5 @@ describe('In walkthroug trough the Best-Practice App a user can', function() {
 
         var firstNote = element.all(by.repeater('note in $ctrl.notes')).get(0);
         expect(firstNote.getText()).toBe('Hans: Hello World');
-
-        //browser.pause();
     });
 });
