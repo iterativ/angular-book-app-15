@@ -18,4 +18,4 @@
 > npm start
 ```
 
-According to the [John Papa AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide)
+According to the [Angular2 update guide](https://angular.io/docs/ts/latest/guide/upgrade.html)
