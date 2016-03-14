@@ -5,7 +5,7 @@
 class BookListController {
 
     private books = [];
-    static $inject = ['$log', '$scope', 'BookService'];
+    static $inject = ['$log', '$scope', 'bookService'];
 
     constructor ($log, $scope, bookService) {
 

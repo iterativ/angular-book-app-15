@@ -2,7 +2,7 @@
  * Created by christiancueni on 12/03/16.
  */
 
-BookDetailController.$inject = ['$log', '$rootRouter', 'BookService']
+BookDetailController.$inject = ['$log', '$rootRouter', 'bookService'];
 
 function BookDetailController($log, $rootRouter, bookService) {
     var $ctrl = this;
