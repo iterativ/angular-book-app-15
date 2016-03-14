@@ -1,4 +1,3 @@
 'use strict';
 
-angular.module('itApp.tasks', [
-]);
+angular.module('itApp.tasks', []);
