@@ -1,10 +1,9 @@
+
 BookService.$inject = ['$http'];
 
 function BookService($http) {
 
     var googleBooksBaseUrl = 'https://www.googleapis.com/books/v1/volumes?q=isbn:';
-
-    //function bookService($http) {
 
         function getBooks() {
             return $http.get('app/js/books/bookdata.json').then(function(response) {
@@ -24,7 +23,7 @@ function BookService($http) {
 
         function getBookDetailsById(id) {
             return getBooks().then(function(books) {
-                var book = _.find(books, {id: id});
+                var book:any = _.find(books, {id: id});
                 if(book) {
                     return getBookDetailsByIsbn(book.isbn);
                 }
@@ -37,7 +36,6 @@ function BookService($http) {
             getBookDetailsByIsbn: getBookDetailsByIsbn,
             getBookDetailsById: getBookDetailsById
         };
-    //}
 };
 
 export default BookService;
