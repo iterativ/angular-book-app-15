@@ -12,16 +12,36 @@ var itApp = angular.module('itApp', [
 
 itApp.value('$routerRootComponent', 'app');
 
-itApp.component('app', {
-    template: `
+class AppComponent implements ng.IComponentOptions {
+    public template:string;
+    public $routeConfig:Object[];
+
+    constructor() {
+        this.template = `
         <nav></nav>
         <ng-outlet></ng-outlet>
-    `,
-    $routeConfig: [
-        {path: '/books/...', name: 'Books', component: 'booksComponent', useAsDefault: true},
-        {path: '/examples', name: 'Examples', component: 'examplesComponent'}
-    ]
-}).component('topmenu', topmenu);
+    `;
+        this.$routeConfig = [
+            {path: '/books/...', name: 'Books', component: 'booksComponent', useAsDefault: true},
+            {path: '/examples', name: 'Examples', component: 'examplesComponent'}
+        ]
+    }
+}
+
+itApp.component('app', new AppComponent()).component('topmenu', topmenu);
+
+/* works as well, but throws a typescript warning
+ itApp.component('app', {
+ template: `
+ <nav></nav>
+ <ng-outlet></ng-outlet>
+ `,
+ $routeConfig: [
+ {path: '/books/...', name: 'Books', component: 'booksComponent', useAsDefault: true},
+ {path: '/examples', name: 'Examples', component: 'examplesComponent'}
+ ]
+ }).component('topmenu', topmenu);
+ */
 
 
 upgradeAdapter.bootstrap(document.documentElement, ['itApp']);

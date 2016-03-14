@@ -1,6 +1,8 @@
 /**
  * Created by christiancueni on 12/03/16.
  */
+import {INote} from './note.service';
+import {IBook} from './books.service';
 
 //BookDetailController.$inject = ['$log', '$rootRouter', 'BookService'];
 //
@@ -31,7 +33,7 @@ class BookDetailController {
 
     private book:IBook;
     private notes:INote[] = [];
-    private note:Object;
+    private note:INote;
 
     constructor(private $log, private $rootRouter, private bookService, private noteService) {
 
@@ -44,12 +46,12 @@ class BookDetailController {
         console.log('$routerOnActivate', next);
 
         let bookId = parseInt(next.params.id, 10);
-        let detailPromise =  this.bookService.getBookDetailsById(bookId).then(function (book) {
+        let detailPromise =  $ctrl.bookService.getBookDetailsById(bookId).then(function (book) {
                 if (book) {
                     $ctrl.book = book;
                 }
                 else {
-                    this.$rootRouter.navigate(['Books']);
+                    $ctrl.$rootRouter.navigate(['Books']);
                 }
         });
 
@@ -72,9 +74,11 @@ class BookDetailController {
 
     private resetNote() {
         this.note = {
+            id: -1,
             author: "",
             title: "",
-            note: ""
+            note: "",
+            bookId: -1
         }
     }
 

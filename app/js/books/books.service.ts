@@ -1,3 +1,10 @@
+export interface IBook {
+    id:number,
+    title:string,
+    author:string,
+    isbn:string
+}
+
 BookService.$inject = ['$http'];
 
 function BookService($http) {
@@ -12,7 +19,7 @@ function BookService($http) {
             });
         }
 
-        function getBookDetailsByIsbn(isbn) {
+        function getBookDetailsByIsbn(isbn:string) {
             var url = googleBooksBaseUrl + isbn;
             return $http.get(url).then(function(response) {
                 if(response.data.totalItems > 0) {
@@ -22,9 +29,9 @@ function BookService($http) {
             });
         }
 
-        function getBookDetailsById(id) {
+        function getBookDetailsById(id:number) {
             return getBooks().then(function(books) {
-                var book = _.find(books, {id: id});
+                var book:any = _.find(books, {id: id});
                 if(book) {
                     return getBookDetailsByIsbn(book.isbn);
                 }

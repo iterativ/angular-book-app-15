@@ -6,28 +6,25 @@ import * as _ from 'lodash';
 import {Observable} from 'rxjs/Observable';
 
 export interface INote {
-    id:Number,
-    bookId: Number,
-    title:String,
-    author:String,
-    note:String
+    id: number,
+    bookId: number,
+    title: string,
+    author: string,
+    note: string
 }
 
 @Injectable()
 export class NoteService {
 
     private noteList:INote[] = [];
-    private index: Number = 0;
+    private index: number = 0;
 
-    listNotes(bookId:Number) {
+    listNotes(bookId:number):INote[] {
         return _.filter(this.noteList, note => note.bookId === bookId);
     }
 
-    //searchNotes() {
-    //    return this.noteList;
-    //}
 
-    saveNote(bookId:Number, title:string, author:String, text:String):INote[]  {
+    saveNote(bookId:number, title:string, author:string, text:string):INote[]  {
         let newNote = {
             id: this.index,
             bookId: bookId,
@@ -40,8 +37,7 @@ export class NoteService {
         return this.listNotes(bookId);
     }
 
-    deleteNote(noteId):INote[] {
-        console.log(noteId);
+    deleteNote(noteId:number):INote[] {
         _.remove(this.noteList, (note) => {
             console.log(note, noteId);
             return note.id === noteId
