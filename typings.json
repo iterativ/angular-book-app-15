@@ -1,11 +1,11 @@
 {
   "ambientDependencies": {
     "angular": "registry:dt/angular#1.5.0+20160310153852",
-    "angular-mocks": "registry:dt/angular-mocks#0.0.0+20160215162030",
-    "angular-resource": "registry:dt/angular-resource#0.0.0+20160310132645",
-    "angular-route": "registry:dt/angular-route#0.0.0+20160211081409",
+    "angular-mocks": "registry:dt/angular-mocks#1.3.0+20160215162030",
+    "angular-resource": "registry:dt/angular-resource#1.5.0+20160310132645",
+    "angular-route": "registry:dt/angular-route#1.3.0+20160211081409",
     "jasmine": "registry:dt/jasmine#2.2.0+20160308082659",
-    "jquery": "registry:dt/jquery#2.0.0+20160303223636",
+    "jquery": "registry:dt/jquery#1.10.0+20160303223636",
     "lodash": "registry:dt/lodash#3.10.0+20160308151359"
   }
 }
