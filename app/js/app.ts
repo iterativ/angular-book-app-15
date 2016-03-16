@@ -2,7 +2,6 @@ import topmenu from './topmenu.component';
 import examples from './examples/examples.module';
 import books from './books/books.module';
 
-
 var itApp = angular.module('itApp', [
     'ngSanitize',
     'ngComponentRouter',

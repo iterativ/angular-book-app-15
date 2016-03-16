@@ -13,8 +13,8 @@ class BookListController {
 
         $log.debug('BookListController activated');
 
-        bookService.getBooks().then(function(books) {
-            $ctrl.books = books;
+        bookService.getBooks().then((books) => {
+            this.books = books;
         });
 
         $scope.$on('$destroy', function() {
