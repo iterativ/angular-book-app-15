@@ -11,40 +11,37 @@ function BookService($http) {
 
     var googleBooksBaseUrl = 'https://www.googleapis.com/books/v1/volumes?q=isbn:';
 
-    //function bookService($http) {
+    function getBooks() {
+        return $http.get('app/js/books/bookdata.json').then(function(response) {
+            return response.data;
+        });
+    }
 
-        function getBooks() {
-            return $http.get('app/js/books/bookdata.json').then(function(response) {
-                return response.data;
-            });
-        }
+    function getBookDetailsByIsbn(isbn:string) {
+        var url = googleBooksBaseUrl + isbn;
+        return $http.get(url).then(function(response) {
+            if(response.data.totalItems > 0) {
+                return response.data.items[0];
+            }
+            return null;
+        });
+    }
 
-        function getBookDetailsByIsbn(isbn:string) {
-            var url = googleBooksBaseUrl + isbn;
-            return $http.get(url).then(function(response) {
-                if(response.data.totalItems > 0) {
-                    return response.data.items[0];
-                }
-                return null;
-            });
-        }
+    function getBookDetailsById(id:number) {
+        return getBooks().then(function(books) {
+            var book:any = _.find(books, {id: id});
+            if(book) {
+                return getBookDetailsByIsbn(book.isbn);
+            }
+            return null;
+        });
+    }
 
-        function getBookDetailsById(id:number) {
-            return getBooks().then(function(books) {
-                var book:any = _.find(books, {id: id});
-                if(book) {
-                    return getBookDetailsByIsbn(book.isbn);
-                }
-                return null;
-            });
-        }
-
-        return {
-            getBooks: getBooks,
-            getBookDetailsByIsbn: getBookDetailsByIsbn,
-            getBookDetailsById: getBookDetailsById
-        };
-    //}
+    return {
+        getBooks: getBooks,
+        getBookDetailsByIsbn: getBookDetailsByIsbn,
+        getBookDetailsById: getBookDetailsById
+    };
 };
 
 export default BookService;
