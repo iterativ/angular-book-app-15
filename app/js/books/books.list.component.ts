@@ -8,9 +8,7 @@ class BookListController {
     static $inject = ['$log', '$scope', 'bookService'];
 
     constructor ($log, $scope, bookService) {
-
-        let $ctrl = this;
-
+        
         $log.debug('BookListController activated');
 
         bookService.getBooks().then((books) => {
