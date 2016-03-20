@@ -11,7 +11,7 @@ var itApp = angular.module('itApp', [
 
 itApp.value('$routerRootComponent', 'app');
 
-class AppComponent implements ng.IComponentOptions {
+class AppComponent {
     public template:string;
     public $routeConfig:Object[];
 

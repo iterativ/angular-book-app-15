@@ -7,15 +7,15 @@ class BookListController {
     private books = [];
     static $inject = ['$log', '$scope', 'bookService'];
 
-    constructor ($log, $scope, bookService) {
-        
+    constructor (private $log, private $scope, private bookService) {
+
         $log.debug('BookListController activated');
 
-        bookService.getBooks().then((books) => {
+        this.bookService.getBooks().then((books) => {
             this.books = books;
         });
 
-        $scope.$on('$destroy', function() {
+        this.$scope.$on('$destroy', function() {
             $log.debug('BookListController destroyed');
         });
     }
