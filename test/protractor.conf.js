@@ -5,7 +5,7 @@ exports.config = {
     onPrepare: function() {
         browser.manage().window().setSize(1200, 800);
     },
-    baseUrl: 'http://localhost:3001/',
+    baseUrl: 'http://localhost:9122/',
     capabilities: {
         'browserName': 'chrome'
     }

@@ -2,7 +2,9 @@
 
 var itApp = angular.module('itApp', [
     'ngSanitize',
+    'ngMessages',
     'ngComponentRouter',
+    'itApp.widgets',
 
     'itApp.books',
     'itApp.examples'
