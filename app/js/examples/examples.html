@@ -4,6 +4,7 @@
     <form class="form-horizontal"
           role="form"
           name="vm.form"
+          novalidate="true"
           ng-submit="vm.submit(form.$valid)">
 
         <it-form-field label="Name">
@@ -22,7 +23,18 @@
                    ng-required="true"/>
         </it-form-field>
 
-        <button ng-disabled="form.$invalid" class="btn btn-primary">Senden</button>
+        <it-form-field label="pos. Zahl">
+            <input
+                    name="number"
+                    type="text"
+                    ng-model="number"
+                    it-minvalue="3"
+                    ng-required="true"
+            >
+
+        </it-form-field>
+
+        <button ng-disabled="vm.form.$invalid" class="btn btn-primary">Senden</button>
 
         <!--
         <pre>
@@ -31,4 +43,14 @@
         -->
 
     </form>
+
+    <h3 it-animated-css="rubberBand" it-animated-start-event="START_CUSTOM_ANIMATION" style="text-align: center">
+        Animations <span class="glyphicon glyphicon-heart"></span>
+    </h3>
+
+    <div>
+        <button ng-click="$ctrl.startAnimation()" class="btn btn-primary">Start Animation</button>
+        <button ng-click="$ctrl.startAnimation('tada')" class="btn btn-primary">Start Tada</button>
+    </div>
+
 </div>
