@@ -1,0 +1,28 @@
+<div class="form-group has-feedback"
+     ng-class="{
+        'has-success': form[name].$valid && form[name].$dirty,
+        'has-error': form[name].$invalid && form[name].$dirty,
+        'field-required': required
+     }">
+
+    <label ng-if="label" class="col-md-3 control-label" ng-bind-html="label"></label>
+
+    <div class="col-md-9">
+        <ng-transclude></ng-transclude>
+        <span ng-if="form[name].$invalid" class="glyphicon glyphicon-remove form-control-feedback"
+              aria-hidden="true"></span>
+        <span ng-if="form[name].$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
+        <div ng-if="form[name].$invalid && form[name].$dirty" class="help-block">
+            <div ng-messages="form[name].$error" ng-messages-multiple
+                 ng-include="'/app/js/widgets/itFormFieldErrors.html'"></div>
+            <div ng-repeat="errorMessage in form[name].errorMessages">
+                <span ng-bind="errorMessage"></span>
+            </div>
+        </div>
+
+        <div ng-if="debug()">
+            <pre ng-bind="form[name]|json"></pre>
+        </div>
+    </div>
+</div>

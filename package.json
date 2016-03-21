@@ -10,7 +10,8 @@
   "scripts": {
     "lite": "lite-server",
     "start": "npm run lite",
-    "test": "karma start test/karma.conf.js --single-run"
+    "test": "karma start test/karma.conf.js --single-run",
+    "protractor": "protractor test/protractor.conf.js"
   },
   "author": "Daniel Egger <daniel.egger@gmail.com>",
   "license": "MIT",
@@ -27,10 +28,11 @@
   },
   "dependencies": {
     "@angular/router": "0.2.0",
-    "angular": "1.5.0",
+    "angular": "1.5.2",
     "angular-localforage": "1.2.5",
-    "angular-mocks": "1.5.0",
-    "angular-sanitize": "1.5.0",
+    "angular-mocks": "1.5.2",
+    "angular-sanitize": "1.5.2",
+    "angular-messages": "1.5.2",
     "bootstrap": "3.3.6",
     "lodash": "4.6.1"
   }
