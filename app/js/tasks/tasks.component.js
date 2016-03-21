@@ -24,7 +24,7 @@ function TaskController($log, taskService) {
         console.log('addTask called');
         if($ctrl.taskInput) {
             $ctrl.tasks.push({
-                name: $ctrl.taskInput,
+                title: $ctrl.taskInput,
                 done: false
             });
             $ctrl.taskInput = '';
