@@ -9,7 +9,7 @@
 
         <it-form-field label="Name">
             <input name="name"
-                   ng-model="name"
+                   ng-model="$ctrl.name"
                    type="text"
                    ng-minlength="3"
                    ng-required="true"/>
@@ -17,18 +17,26 @@
 
         <it-form-field label="Email">
             <input name="email"
-                   ng-model="email"
+                   ng-model="$ctrl.email"
                    type="email"
                    ng-minlength="5"
                    ng-required="true"/>
         </it-form-field>
 
-        <it-form-field label="pos. Zahl">
+        <it-form-field label="min Zahl">
+            <input
+                    name="minValueNumber"
+                    type="text"
+                    ng-model="$ctrl.minValueNumber"
+            >
+        </it-form-field>
+
+        <it-form-field label="pos. Zahl" debug="true">
             <input
                     name="number"
                     type="text"
-                    ng-model="number"
-                    it-minvalue="3"
+                    ng-model="$ctrl.number"
+                    it-minvalue="$ctrl.minValueNumber"
                     ng-required="true"
             >
 

@@ -30,6 +30,7 @@ module.exports = function(config) {
             'app/js/app.js',
             'app/js/books/books.module.js',
             'app/js/examples/examples.module.js',
+            'app/js/widgets/widgets.module.js',
 
             'app/js/**/*.js',
 
